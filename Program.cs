@@ -1,25 +1,22 @@
-﻿using System.Net;
-
+﻿// Bài Toán căn bậc hai lần 2
 class Program
 {
-    private static void Main(string[] args)
+    static void Main(string[] args)
     {
-        Console.WriteLine("nhập a vô nhanh:");
-        var a = Console.ReadLine();
-        Console.WriteLine("nhập b vô nhanh:");
-        var b = Console.ReadLine();
-        Console.WriteLine("nhập c vô nhanh:");
-        var c = Console.ReadLine();
+        Console.WriteLine("Số của a là: ");
+        double a = double.Parse(Console.ReadLine());
+        Console.WriteLine("Số của b là: ");
+        double b = double.Parse(Console.ReadLine());
+        Console.WriteLine("Số của c là: ");
+        double c = double.Parse(Console.ReadLine());
+        double x = 0;
+        double delta = b * b - 4 * a * c;
 
-        int aInt = int.Parse(a ?? "0");
-        int bInt = int.Parse(b ?? "0");
-        int cInt = int.Parse(c ?? "0");
-
-        if (aInt == 0)
+        if (a == 0)
         {
-            if (bInt == 0)
+            if (b == 0)
             {
-                if (cInt == 0)
+                if (c == 0)
                 {
                     Console.WriteLine("Vô Số Nghiệm");
                 }
@@ -30,32 +27,31 @@ class Program
             }
             else
             {
-                double x = -cInt * 1.0 / bInt;
-                Console.WriteLine($"Nghiệm của phương trình là x = {x}");
+                Console.WriteLine(x = -c / b);
             }
         }
         else
         {
-            int delta = bInt * bInt - 4 * aInt * cInt;
+            Console.WriteLine(delta = b * b - 4 * a * c);
+
             if (delta > 0)
             {
-                double sqrtDelta = Math.Sqrt(delta);
-                double x1 = (-bInt + sqrtDelta) / (2.0 * aInt);
-                double x2 = (-bInt - sqrtDelta) / (2.0 * aInt);
-                Console.WriteLine($"Hai nghiệm phân biệt: x1={x1} và x2={x2}");
+                double x11 = (-b + Math.Sqrt(delta)) / (2 * a);
+                double x12 = (-b - Math.Sqrt(delta)) / (2 * a);
+                Console.WriteLine("Nghiệm của x1 là: " + x11);
+                Console.WriteLine("Nghiệm của x2 là: " + x12);
             }
             else if (delta == 0)
-            {
-                double x = -bInt * 1.0 / (2 * aInt);
-                Console.WriteLine($"Nghiệm kép: x1 = x2 = {x}");
-            }
+                Console.WriteLine("Có Nghiệm kép x1 = x2 = " + -b / (2 * a));
             else
-            {
-                Console.WriteLine("Không có nghiệm");
-            }
+                Console.WriteLine("Vô Nghiệm");
         }
-    }
-}
+
+    }   // luôn nhớ đóng hàm Main
+}   //  luôn nhớ đóng class Program 
+
+
+
 
 
 
